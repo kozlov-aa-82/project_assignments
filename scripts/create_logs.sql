@@ -1,0 +1,16 @@
+CREATE USER user_logs WITH PASSWORD '12345678';
+GRANT CONNECT ON DATABASE project_db TO user_logs;
+
+CREATE SCHEMA IF NOT EXISTS logs AUTHORIZATION user_logs;
+
+SET ROLE user_logs;
+
+CREATE TABLE IF NOT EXISTS logs.data_logs(
+	id SERIAL PRIMARY KEY NOT NULL,
+	datetime TIMESTAMP NOT NULL,
+	event TEXT NOT NULL,
+	table_name TEXT NOT NULL,
+	schema_name TEXT NOT NULL,
+	status TEXT NOT NULL, --('STARTED', 'COMPLETED')
+	value TEXT
+);
