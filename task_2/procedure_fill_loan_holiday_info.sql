@@ -9,6 +9,7 @@ BEGIN
 		   ,deal_num --Номер сделки
 		   ,deal_name --Наименование сделки
 		   ,deal_sum --Сумма сделки
+		   ,account_rk
 		   ,client_rk --Ссылка на клиента
 		   ,agreement_rk --Ссылка на договор
 		   ,deal_start_date --Дата начала действия сделки
@@ -48,6 +49,7 @@ BEGIN
 	        ,lh.loan_holiday_last_possible_date    --Последняя возможная дата кредитных каникул
 	        ,d.deal_name --Наименование сделки
 	        ,d.deal_sum --Сумма сделки
+			,d.account_rk
 	        ,d.client_rk --Ссылка на контрагента
 	        ,d.agreement_rk --Ссылка на договор
 	        ,d.deal_start_date --Дата начала действия сделки
@@ -73,6 +75,7 @@ BEGIN
 	      ,effective_from_date
 	      ,effective_to_date
 	      ,agreement_rk
+		  ,account_rk
 	      ,client_rk
 	      ,department_rk
 	      ,product_rk
